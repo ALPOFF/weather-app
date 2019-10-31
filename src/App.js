@@ -2,13 +2,13 @@ import React from 'react';
 
 import './App.css';
 import Header from "./components/Header/Header";
-import WeatherContent from "./components/WeatherContent/WeatherContent";
+import WeatherContentContainer from "./containers/WeatherContentContainer/WeatherContentContainer";
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <WeatherContent/>
+      <WeatherContentContainer/>
     </div>
   );
 }

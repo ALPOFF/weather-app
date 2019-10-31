@@ -1,22 +1,21 @@
-import React from "react";
-import {geolocated} from "react-geolocated";
-import "./WeatherContent.css"
-import {usePosition} from "../../helpers/usePosition";
+import React, {useEffect} from "react";
 
-function WeatherContent() {
-    const { latitude, longitude, error } = usePosition();
+const WeatherContent = ({latitude, longitude, getWeather, weather}) => {
+
 
     return (
         <div className="content">
-            <button >Get Your Pos</button>
+            <button onClick={getWeather}>get weather</button>
             <button>Add City</button>
             <button>Delete City</button>
             <div>
-                weather - {latitude},
-                {longitude}
+                coords - {latitude},
+                {longitude} <br/>
+                weather - {weather.weather.map(t => <span>{t.description}</span>)}
             </div>
         </div>
     )
-}
+};
 
 export default WeatherContent;
+

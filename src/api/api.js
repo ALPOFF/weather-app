@@ -1,11 +1,11 @@
 import * as axios from "axios";
 
-const instance =  axios.create({
+/*const instance =  axios.create({
     withCredentials: true,
     baseURL: 'https://api.openweathermap.org/data/2.5/'
-});
+});*/
 
 export const getCurrentPosWeather = (lat, lon) => {
-    instance.get(`weather?lat=${lat}&lon=${lon}&appid=39f73c23d0938b6520d41447e49606a1`);
+    return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=0097ac3e053179543aed6b60c11b6fec`);
 };
 
