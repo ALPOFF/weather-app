@@ -1,13 +1,14 @@
 import React, {useEffect} from "react";
-import "./WeatherContentContainer.css"
+import "./CurrentPosWeatherContainer.css"
 import {usePosition} from "../../helpers/usePosition";
-import WeatherContent from "../../components/WeatherContent/WeatherContent";
+import CurrentPosWeather from "../../components/WeatherContent/CurrentPosWeather";
 import {connect} from "react-redux";
 import {getWeatherFunc} from "../../state/weather-reducer";
+import Preloader from "../../common/Preloader/Preloader";
 
-const WeatherContentContainer = (props) => {
+const CurrentPosWeatherContainer = (props) => {
 
-    const {latitude, longitude, error} = usePosition();
+    const {latitude, longitude} = usePosition();
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((pos) => {
@@ -16,16 +17,14 @@ const WeatherContentContainer = (props) => {
     }, []);
 
     let getWeather = () => {
-        console.log(latitude)
-
         props.getWeatherFunc(latitude, longitude);
     };
 
-    return <WeatherContent latitude={latitude} weather={props.weather} longitude={longitude} getWeather={getWeather}/>
+    return <CurrentPosWeather latitude={latitude} weather={props.weather} longitude={longitude} getWeather={getWeather}/>
 };
 
 const mapStateToProps = (state) => ({
     weather: state.weatherReducer.weather
 });
 
-export default connect(mapStateToProps, {getWeatherFunc})(WeatherContentContainer);
+export default connect(mapStateToProps, {getWeatherFunc})(CurrentPosWeatherContainer);
