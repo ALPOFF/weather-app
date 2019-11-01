@@ -2,14 +2,16 @@ import {getCityWeather, getCurrentPosWeather} from "../api/api";
 
 const SET_WEATHER = 'SET_WEATHER';
 const SET_CITY_WEATHER = 'SET_CITY_WEATHER';
-const SET_NEW_CITY_VALUE = 'SET_NEW_CITY_VALUE'
+const SET_NEW_CITY_VALUE = 'SET_NEW_CITY_VALUE';
+const SET_CITY = 'SET_CITY'
 
 
 let initialState = {
     weather: {weather: [], main: []},
     cityWeather: {weather: [], main: []},
     xxx: 5,
-    newCityValue: ''
+    newCityValue: '',
+    Cities: []
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -29,6 +31,11 @@ const weatherReducer = (state = initialState, action) => {
                 ...state,
                 newCityValue: action.newCityValue
             };
+        case SET_CITY:
+            return {
+                ...state,
+                Cities: [...state.Cities, state.cityWeather]
+            };
         default:
             return state
     }
@@ -38,6 +45,12 @@ export const setWeather = (payload) => {
     return {
         type: SET_WEATHER,
         payload
+    }
+};
+
+export const setCity = () => {
+    return {
+        type: SET_CITY
     }
 };
 

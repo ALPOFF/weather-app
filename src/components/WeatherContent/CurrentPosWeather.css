@@ -1,13 +1,14 @@
 .top {
     display: flex;
     justify-content: space-around;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid white;
 }
 
 
 .currentWeather {
     display: flex;
     align-items: center;
+    padding-bottom: 6px;
 }
 
 .currentWeather img {
@@ -17,10 +18,17 @@
 .top a {
     font-weight: bold;
     text-decoration: none;
+    color: white;
 }
 
 input {
     height: 30px;
     width: 200px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 

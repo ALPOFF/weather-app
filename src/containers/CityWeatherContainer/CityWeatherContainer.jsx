@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {getCityWeatherFunc} from "../../state/weather-reducer";
+import {getCityWeatherFunc, setCity} from "../../state/weather-reducer";
 import CityWeather from "../../components/CityWeather/CityWeather";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
@@ -19,14 +19,15 @@ const CityWeatherContainer = (props) => {
         return <Preloader/>
     }
 
-    return <CityWeather cityWeather={props.cityWeather}/>
+    return <CityWeather cityWeather={props.cityWeather} setCity={props.setCity} Cities={props.Cities}/>
 
 };
 
 const mapStateToProps = (state) => ({
     cityWeather: state.weatherReducer.cityWeather,
-    xxx: state.weatherReducer.xxx
+    xxx: state.weatherReducer.xxx,
+    Cities: state.weatherReducer.Cities
 });
 
-export default compose(connect(mapStateToProps, {getCityWeatherFunc}), withRouter)
+export default compose(connect(mapStateToProps, {getCityWeatherFunc, setCity}), withRouter)
 (CityWeatherContainer);

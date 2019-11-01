@@ -10,9 +10,10 @@ function App() {
         <div className="App">
         <div className="wrapper">
             <WeatherContentContainer/>
-            <div>
+            <CityWeatherContainer/>
+      {/*      <div>
                 <Route path='/cities/:city?' render={() => <CityWeatherContainer/>}/>
-            </div>
+            </div>*/}
         </div>
         </div>
     );
