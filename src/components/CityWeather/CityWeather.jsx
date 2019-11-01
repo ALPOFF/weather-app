@@ -2,10 +2,15 @@ import React from "react";
 import "./CityWeather.css"
 import Preloader from "../../common/Preloader/Preloader";
 
-const CityWeather = ({cityWeather, setCity, Cities}) => {
+const CityWeather = ({cityWeather, setCity, unsetCity, Cities}) => {
 
 let addCity = () => {
     setCity();
+};
+
+let delCity = (e) => {
+    let id = e.currentTarget.id;
+    unsetCity(id)
 };
 
     return <div className="city_container">
@@ -18,7 +23,7 @@ let addCity = () => {
             </div>
         </div>
         <div className="city_container_item_set"><a>Your cities</a><br/>
-            {Cities.map(c => c.name)}
+            {Cities.map(c => <div><a>{c.name}</a><button id={c.id} onClick={delCity}><a>-</a></button></div>)}
         </div>
     </div>
 };

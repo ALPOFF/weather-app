@@ -30,7 +30,7 @@ let reducers = combineReducers({
 
 const store = createStore(reducers, persistedState, applyMiddleware(thunkMiddleware));
 
-store.subscribe(() => saveToLocalStorage(store.getState()))
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 window.store = store;
 
