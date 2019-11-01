@@ -8,11 +8,12 @@ import CityWeatherContainer from "./containers/CityWeatherContainer/CityWeatherC
 function App() {
     return (
         <div className="App">
-            <Header/>
+        <div className="wrapper">
             <WeatherContentContainer/>
             <div>
                 <Route path='/cities/:city?' render={() => <CityWeatherContainer/>}/>
             </div>
+        </div>
         </div>
     );
 }

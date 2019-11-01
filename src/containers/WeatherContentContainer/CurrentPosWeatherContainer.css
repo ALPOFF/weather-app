@@ -1,12 +1,4 @@
-.content {
-    display: flex;
-    border: 1px solid black;
-    width: 700px;
-    height: 600px;
-    background-color: #F0F8FD;
-}
-
 button {
     height: 20px;
-    width: 80px;
+    width: 120px;
 }

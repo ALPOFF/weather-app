@@ -1,1 +1,26 @@
+.top {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+
+.currentWeather {
+    display: flex;
+    align-items: center;
+}
+
+.currentWeather img {
+    padding: 8px;
+}
+
+.top a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+input {
+    height: 30px;
+    width: 200px;
+}
 

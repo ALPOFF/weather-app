@@ -3,8 +3,7 @@ import "./CurrentPosWeatherContainer.css"
 import {usePosition} from "../../helpers/usePosition";
 import CurrentPosWeather from "../../components/WeatherContent/CurrentPosWeather";
 import {connect} from "react-redux";
-import {getWeatherFunc} from "../../state/weather-reducer";
-import Preloader from "../../common/Preloader/Preloader";
+import {getCityWeatherFunc, getWeatherFunc, setNewCityValue} from "../../state/weather-reducer";
 
 const CurrentPosWeatherContainer = (props) => {
 
@@ -20,11 +19,18 @@ const CurrentPosWeatherContainer = (props) => {
         props.getWeatherFunc(latitude, longitude);
     };
 
-    return <CurrentPosWeather latitude={latitude} weather={props.weather} longitude={longitude} getWeather={getWeather}/>
+    return <CurrentPosWeather latitude={latitude}
+                              newCityValue={props.newCityValue}
+                              weather={props.weather}
+                              longitude={longitude}
+                              getWeather={getWeather}
+                              setNewCityValue={props.setNewCityValue}
+                              getCityWeatherFunc={props.getCityWeatherFunc} />
 };
 
 const mapStateToProps = (state) => ({
-    weather: state.weatherReducer.weather
+    weather: state.weatherReducer.weather,
+    newCityValue: state.weatherReducer.newCityValue
 });
 
-export default connect(mapStateToProps, {getWeatherFunc})(CurrentPosWeatherContainer);
+export default connect(mapStateToProps, {getWeatherFunc, setNewCityValue, getCityWeatherFunc})(CurrentPosWeatherContainer);

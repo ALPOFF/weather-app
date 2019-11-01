@@ -19,9 +19,8 @@ const CityWeatherContainer = (props) => {
         return <Preloader/>
     }
 
-    return (<div>
-        <CityWeather cityWeather={props.cityWeather}/>
-    </div>)
+    return <CityWeather cityWeather={props.cityWeather}/>
+
 };
 
 const mapStateToProps = (state) => ({
