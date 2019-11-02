@@ -1,8 +1,9 @@
 import React from "react";
 import "./CityWeather.css"
 import Preloader from "../../common/Preloader/Preloader";
+import {showCity} from "../../state/weather-reducer";
 
-const CityWeather = ({cityWeather, setCity, unsetCity, Cities}) => {
+const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
 
     let addCity = () => {
         setCity();
@@ -12,6 +13,11 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities}) => {
         let id = e.currentTarget.id;
         unsetCity(id)
     };
+
+    let showDescription = (e) => {
+        let id = e.currentTarget.id;
+        showCity(id)
+    }
 
     return <div className="city_container">
 
@@ -37,8 +43,11 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities}) => {
 
 
         <div className="city_container_item_set">
-                {Cities.map(c => <div className="cities"><a>{c.name}</a>
-                    <a>{Math.ceil(c.main.temp)}°</a>
+
+                {Cities.map(c => <div className="cities">
+                    <img id={c.id} onClick={showDescription} src="https://www.fortcollinsdogwizard.com/resources/info.png?timestamp=1507522652765" alt="" height={25}/>
+                    <a onClick={showDescription}>{c.name+" "+
+                    Math.ceil(c.main.temp)}°</a>
                     <button id={c.id} onClick={delCity}>
                         <a> - </a></button>
                 </div>)}

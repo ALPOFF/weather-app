@@ -30,7 +30,7 @@ button {
     display: flex;
     flex-direction: column;
     border-left: 2px solid white;
-    width: 30%;
+    width: 40%;
 }
 
 .city_container_item_temp_item_x {
@@ -55,17 +55,24 @@ button {
 }
 
 .city_weather_details img {
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 .city_weather_details_descipt {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-right: 10px;
 }
 
 .cities {
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 8px;
+    justify-content: space-between;
+}
+
+.cities img {
+    padding: 5px;
+    cursor: pointer;
 }

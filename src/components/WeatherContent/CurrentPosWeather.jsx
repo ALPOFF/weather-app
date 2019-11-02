@@ -24,16 +24,12 @@ const CurrentPosWeather = ({latitude, longitude, getWeather, weather, newCityVal
 
     return (
         <div className="top">
-         {/*   <nav>
-                {city.map(c => <div><NavLink to={'/cities/' + c}>{c}</NavLink></div>)}
-            </nav>*/}
             <div className="currentWeather">
                 <input placeholder="Enter city ..." value={newCityValue} onKeyDown={EnterDown}
                        onChange={onNewCityValue} type="text"/></div>
             <div className="currentWeather">
-                <img src={gps_icon} alt="" height={25}/>
-                <a>{weather.name} - </a>  {weather.weather.map(t =>
-                <span> <a>{t.description} </a></span>)}
+                <img src={gps_icon} alt="gps_icon" height={25}/>
+                <a>{weather.name}</a>
                 <a>{Math.ceil(weather.main.temp)}°</a>
             </div>
         </div>

@@ -4,7 +4,8 @@ const SET_WEATHER = 'SET_WEATHER';
 const SET_CITY_WEATHER = 'SET_CITY_WEATHER';
 const SET_NEW_CITY_VALUE = 'SET_NEW_CITY_VALUE';
 const SET_CITY = 'SET_CITY';
-const UN_SET_CITY = 'UN_SET_CITY'
+const UN_SET_CITY = 'UN_SET_CITY';
+const SHOW_CITY = 'SHOW_CITY'
 
 let initialState = {
     weather: {weather: [], main: []},
@@ -39,7 +40,13 @@ const weatherReducer = (state = initialState, action) => {
         case UN_SET_CITY:
             return {
                 ...state,
-                Cities: state.Cities.filter( c => c.id != action.id )
+                Cities: state.Cities.filter(c => c.id != action.id)
+            };
+        case SHOW_CITY:
+            let [selectedCity] = state.Cities.filter(c => c.id == action.id);
+            return {
+                ...state,
+                cityWeather: selectedCity
             };
         default:
             return state
@@ -62,6 +69,13 @@ export const setCity = () => {
 export const unsetCity = (id) => {
     return {
         type: UN_SET_CITY,
+        id
+    }
+};
+
+export const showCity = (id) => {
+    return {
+        type: SHOW_CITY,
         id
     }
 };
