@@ -22,7 +22,7 @@ button {
 .city_container_item_temp {
   display: flex;
   align-items: start;
-  width: 65%;
+  width: 70%;
   justify-content: center;
 }
 
@@ -60,8 +60,10 @@ button {
 
 .city_container_item_set {
   @extend .city_container_item_temp_item_x;
+  height: 150px;
   border-left: 2px solid white;
-  width: 35%;
+  width: 40%;
+  overflow-y: Auto;
 }
 
 .city_container_item_temp_item {
@@ -72,4 +74,31 @@ button {
 .city_weather_details_descipt {
   @extend .city_container_item_temp_item_x;
   padding-right: 10px;
+}
+
+::-webkit-scrollbar-button {
+  background-image:url('');
+  background-repeat:no-repeat;
+  width:6px;
+  height:0px
+}
+
+::-webkit-scrollbar-track {
+  background-color: #48484A;
+  border-radius: 3px;
+  box-shadow:0px 0px 3px #000 inset;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #F5F6F8;
+  box-shadow:0px 1px 1px #fff inset;
+  background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+::-webkit-scrollbar{
+  width: 9px;
 }
