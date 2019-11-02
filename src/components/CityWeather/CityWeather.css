@@ -21,18 +21,51 @@ button {
 
 .city_container_item_temp {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
+    align-items: start;
+    width: 70%;
+    justify-content: center;
 }
 
 .city_container_item_set {
-    border-left: 2px solid white;
-    flex-direction: column;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
+    flex-direction: column;
+    border-left: 2px solid white;
+    width: 30%;
 }
 
+.city_container_item_temp_item_x {
+    display: flex;
+    flex-direction: column;;
+}
 
+.city_container_item_temp_item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;;
+}
+
+.city_title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.city_weather_details {
+    display: flex;
+}
+
+.city_weather_details img {
+    padding-right: 20px;
+}
+
+.city_weather_details_descipt {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cities {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
