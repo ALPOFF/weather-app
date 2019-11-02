@@ -25,7 +25,8 @@ const weatherReducer = (state = initialState, action) => {
         case SET_CITY_WEATHER:
             return {
                 ...state,
-                cityWeather: action.payl
+                cityWeather: action.payl,
+                newCityValue: ''
             };
         case SET_NEW_CITY_VALUE:
             return {
