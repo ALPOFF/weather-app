@@ -28,8 +28,8 @@ const CurrentPosWeather = ({weather, newCityValue, setNewCityValue, getCityWeath
                        onChange={onNewCityValue} type="text"/></div>
             <div className="currentWeather">
                 <img src={gps_icon} alt="gps_icon" height={25}/>
-                <a>{weather.name}</a>
-                <a>{Math.ceil(weather.main.temp)}°</a>
+                {weather.name}>
+                {Math.ceil(weather.main.temp)}°
             </div>
         </div>
     )

@@ -1,5 +1,7 @@
 import React, {useEffect} from "react";
-import "./CityWeather.scss"
+import "./CityWeather.scss";
+import delete_icon from "./../../assets/delete_icon.png";
+import add_icon from "./../../assets/add_icon.png"
 
 const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
 
@@ -21,18 +23,19 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
         <div className="city_container_item_temp">
             <div className="city_container_item_temp_item">
                 <div className="city_title">
-                    <a>{cityWeather.name}</a>
-                    <button onClick={addCity}><a>+</a></button>
+                    {cityWeather.name}
+                    <img onClick={addCity} src={add_icon} alt="add_icon" height={12} />
                 </div>
                 <div className="city_weather_details">
                     {cityWeather.weather.map(t =>
                         <img src={`http://openweathermap.org/img/wn/${t.icon}@2x.png`} alt=""/>)}
                     <div className="city_weather_details_descipt">
                         {cityWeather.weather.map(t =>
-                            <a>{t.description} </a>)}
-                        <a> Temperature: {Math.ceil(cityWeather.main.temp)}° </a>
-                        <a> Pressure: {cityWeather.main.pressure} hPa</a>
-                        <a> Humidity: {cityWeather.main.humidity} %</a>
+                            <a>{t.description}</a>)}
+                            Temperature: {Math.ceil(cityWeather.main.temp)}°
+
+                        Pressure: {cityWeather.main.pressure} hPa
+                        Humidity: {cityWeather.main.humidity} %
                     </div>
                 </div>
             </div>
@@ -43,10 +46,9 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
                 <img id={c.id} onClick={showDescription}
                      src="https://www.fortcollinsdogwizard.com/resources/info.png?timestamp=1507522652765" alt=""
                      height={25}/>
-                <a>{c.name + " " +
-                Math.ceil(c.main.temp)}°</a>
-                <button id={c.id} onClick={delCity}>
-                    <a> - </a></button>
+                     <img id={c.id} src={delete_icon} alt="delete_icon" height={19} onClick={delCity}/>
+                {c.name + " " +
+                Math.ceil(c.main.temp)}°
             </div>)}
         </div>
     </div>

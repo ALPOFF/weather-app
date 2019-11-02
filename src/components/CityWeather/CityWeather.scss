@@ -22,7 +22,7 @@ button {
 .city_container_item_temp {
   display: flex;
   align-items: start;
-  width: 70%;
+  width: 65%;
   justify-content: center;
 }
 
@@ -30,6 +30,10 @@ button {
   display: flex;
   align-items: center;
   padding-bottom: 15px;
+  img {
+    padding: 8px;
+    cursor: pointer;
+  }
 }
 
 .city_weather_details {
@@ -43,9 +47,8 @@ button {
   display: flex;
   align-items: center;
   padding-left: 8px;
-  justify-content: space-between;
   img {
-    padding: 5px;
+    padding: 3px;
     cursor: pointer;
   }
 }
@@ -58,7 +61,7 @@ button {
 .city_container_item_set {
   @extend .city_container_item_temp_item_x;
   border-left: 2px solid white;
-  width: 40%;
+  width: 35%;
 }
 
 .city_container_item_temp_item {
@@ -68,6 +71,5 @@ button {
 
 .city_weather_details_descipt {
   @extend .city_container_item_temp_item_x;
-  justify-content: space-between;
   padding-right: 10px;
 }
