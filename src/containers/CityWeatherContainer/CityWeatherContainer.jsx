@@ -1,21 +1,18 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {getCityWeatherFunc, setCity, showCity, unsetCity} from "../../state/weather-reducer";
+import {getCityWeatherFunc, getNewCityWeatherData, setCity, showCity, unsetCity} from "../../state/weather-reducer";
 import CityWeather from "../../components/CityWeather/CityWeather";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import Preloader from "../../common/Preloader/Preloader";
 import {getCitiesSelector, getCityWeatherSelector} from "../../state/selectors";
 
 const CityWeatherContainer = (props) => {
     let city = props.match.params.city;
     useEffect(() => {
         props.getCityWeatherFunc(city);
+        let idArr = props.Cities.map(c => c.id)
+        props.getNewCityWeatherData(idArr);
     }, [city]);
-
-    if (!props.cityWeather.weather) {
-        return <Preloader/>
-    }
 
     return <CityWeather cityWeather={props.cityWeather}
                         showCity={props.showCity}
@@ -29,5 +26,5 @@ const mapStateToProps = (state) => ({
     Cities: getCitiesSelector(state)
 });
 
-export default compose(connect(mapStateToProps, {getCityWeatherFunc, setCity, unsetCity, showCity}), withRouter)
+export default compose(connect(mapStateToProps, {getCityWeatherFunc, setCity, unsetCity, showCity, getNewCityWeatherData}), withRouter)
 (CityWeatherContainer);

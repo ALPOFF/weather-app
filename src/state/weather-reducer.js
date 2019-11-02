@@ -1,11 +1,12 @@
-import {getCityWeather, getCurrentPosWeather} from "../api/api";
+import {getCitiesWeatherArr, getCityWeather, getCurrentPosWeather} from "../api/api";
 
 const SET_WEATHER = 'SET_WEATHER';
 const SET_CITY_WEATHER = 'SET_CITY_WEATHER';
 const SET_NEW_CITY_VALUE = 'SET_NEW_CITY_VALUE';
 const SET_CITY = 'SET_CITY';
 const UN_SET_CITY = 'UN_SET_CITY';
-const SHOW_CITY = 'SHOW_CITY'
+const SHOW_CITY = 'SHOW_CITY';
+const UPDATE_CITY_WEATHER = 'UPDATE_CITY_WEATHER'
 
 let initialState = {
     weather: {weather: [], main: []},
@@ -40,6 +41,11 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 Cities: state.Cities.filter(c => c.id != action.id)
+            };
+        case UPDATE_CITY_WEATHER:
+            return {
+                ...state,
+                Cities: action.idArr
             };
         case SHOW_CITY:
             let [selectedCity] = state.Cities.filter(c => c.id == action.id);
@@ -93,6 +99,13 @@ export const setNewCityValue = (newCityValue) => {
     }
 };
 
+export const updateCityWeather = (idArr) => {
+    return {
+        type: UPDATE_CITY_WEATHER,
+        idArr
+    }
+};
+
 export const getCityWeatherFunc = (city) => async (dispatch) => {
     let response = await getCityWeather(city);
     dispatch(setCityWeather(response.data))
@@ -103,4 +116,11 @@ export const getWeatherFunc = (latitude, longitude) => async (dispatch) => {
     dispatch(setWeather(response.data));
 };
 
+
+export const getNewCityWeatherData = (idArr) => async (dispatch) => {
+    let response = await getCitiesWeatherArr(idArr);
+    dispatch(updateCityWeather(response.data.list))
+};
+
 export default weatherReducer;
+

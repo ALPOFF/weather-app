@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./CityWeather.scss"
 
 const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
@@ -43,7 +43,7 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
                 <img id={c.id} onClick={showDescription}
                      src="https://www.fortcollinsdogwizard.com/resources/info.png?timestamp=1507522652765" alt=""
                      height={25}/>
-                <a onClick={showDescription}>{c.name + " " +
+                <a>{c.name + " " +
                 Math.ceil(c.main.temp)}°</a>
                 <button id={c.id} onClick={delCity}>
                     <a> - </a></button>
