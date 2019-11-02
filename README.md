@@ -1,5 +1,5 @@
 <h1>Weather widget</h1>
-<img src="https://sun9-62.userapi.com/c855724/v855724021/14951b/7GsWf7I_ZRk.jpg" alt="weather-app"/>
+<img src="https://sun9-40.userapi.com/c855436/v855436644/14dedd/PW-xfP0ENys.jpg" alt="weather-app"/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
