@@ -1,10 +1,9 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
-import {NavLink} from "react-router-dom";
-import "./CurrentPosWeather.css"
+import "./CurrentPosWeather.scss"
 import gps_icon from "./../../assets/gps_icon.png"
 
-const CurrentPosWeather = ({latitude, longitude, getWeather, weather, newCityValue, setNewCityValue, getCityWeatherFunc}) => {
+const CurrentPosWeather = ({weather, newCityValue, setNewCityValue, getCityWeatherFunc}) => {
 
     if (!weather.main.temp) {
         return <Preloader/>

@@ -10,7 +10,6 @@ const SHOW_CITY = 'SHOW_CITY'
 let initialState = {
     weather: {weather: [], main: []},
     cityWeather: {weather: [], main: []},
-    xxx: 5,
     newCityValue: '',
     Cities: []
 };

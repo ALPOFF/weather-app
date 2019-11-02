@@ -1,9 +1,10 @@
 import React, {useEffect} from "react";
-import "./CurrentPosWeatherContainer.css"
+import "./CurrentPosWeatherContainer.scss"
 import {usePosition} from "../../helpers/usePosition";
 import CurrentPosWeather from "../../components/WeatherContent/CurrentPosWeather";
 import {connect} from "react-redux";
 import {getCityWeatherFunc, getWeatherFunc, setNewCityValue} from "../../state/weather-reducer";
+import {getNewCityValueSelector, getWeatherSelector} from "../../state/selectors";
 
 const CurrentPosWeatherContainer = (props) => {
 
@@ -25,12 +26,16 @@ const CurrentPosWeatherContainer = (props) => {
                               longitude={longitude}
                               getWeather={getWeather}
                               setNewCityValue={props.setNewCityValue}
-                              getCityWeatherFunc={props.getCityWeatherFunc} />
+                              getCityWeatherFunc={props.getCityWeatherFunc}/>
 };
 
 const mapStateToProps = (state) => ({
-    weather: state.weatherReducer.weather,
-    newCityValue: state.weatherReducer.newCityValue
+    weather: getWeatherSelector(state),
+    newCityValue: getNewCityValueSelector(state)
 });
 
-export default connect(mapStateToProps, {getWeatherFunc, setNewCityValue, getCityWeatherFunc})(CurrentPosWeatherContainer);
+export default connect(mapStateToProps, {
+    getWeatherFunc,
+    setNewCityValue,
+    getCityWeatherFunc
+})(CurrentPosWeatherContainer);
