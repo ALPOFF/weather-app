@@ -38,7 +38,7 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities}) => {
 
         <div className="city_container_item_set">
                 {Cities.map(c => <div className="cities"><a>{c.name}</a>
-                    <a>{Math.ceil(cityWeather.main.temp)}°</a>
+                    <a>{Math.ceil(c.main.temp)}°</a>
                     <button id={c.id} onClick={delCity}>
                         <a> - </a></button>
                 </div>)}
