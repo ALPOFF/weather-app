@@ -34,6 +34,10 @@ button {
     padding: 8px;
     cursor: pointer;
   }
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .city_weather_details {
@@ -62,7 +66,7 @@ button {
   @extend .city_container_item_temp_item_x;
   height: 150px;
   border-left: 2px solid white;
-  width: 40%;
+  width: 45%;
   overflow-y: Auto;
 }
 
@@ -73,7 +77,6 @@ button {
 
 .city_weather_details_descipt {
   @extend .city_container_item_temp_item_x;
-  padding-right: 10px;
 }
 
 ::-webkit-scrollbar-button {

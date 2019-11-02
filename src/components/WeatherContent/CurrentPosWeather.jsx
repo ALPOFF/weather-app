@@ -2,6 +2,7 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import "./CurrentPosWeather.scss"
 import gps_icon from "./../../assets/gps_icon.png"
+import {connect} from "react-redux";
 
 const CurrentPosWeather = ({weather, newCityValue, setNewCityValue, getCityWeatherFunc}) => {
 
@@ -35,5 +36,5 @@ const CurrentPosWeather = ({weather, newCityValue, setNewCityValue, getCityWeath
     )
 };
 
-export default CurrentPosWeather;
+export default connect()(CurrentPosWeather);
 

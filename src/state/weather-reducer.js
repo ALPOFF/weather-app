@@ -109,8 +109,13 @@ export const updateCityWeather = (idArr) => {
 
 export const getCityWeatherFunc = (city) => async (dispatch) => {
     let response = await getCityWeather(city);
-    dispatch(setCityWeather(response.data))
-};
+    if (response.status == '200') {
+        dispatch(setCityWeather(response.data))
+    }
+    else {
+        console.log(555)
+    }
+ };
 
 export const getWeatherFunc = (latitude, longitude) => async (dispatch) => {
     let response = await getCurrentPosWeather(latitude, longitude);

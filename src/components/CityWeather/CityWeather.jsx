@@ -23,7 +23,7 @@ const CityWeather = ({cityWeather, setCity, unsetCity, Cities, showCity}) => {
         <div className="city_container_item_temp">
             <div className="city_container_item_temp_item">
                 <div className="city_title">
-                    {cityWeather.name}
+                    <h3>{cityWeather.name}</h3>
                     <img onClick={addCity} src={add_icon} alt="add_icon" height={12} />
                 </div>
                 <div className="city_weather_details">
