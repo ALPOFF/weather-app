@@ -14,7 +14,7 @@ let SavedCities = ({cityWeather, addCity}) => {
                 <div className="city_weather_details_descipt">
                     {cityWeather.weather.map(t =>
                         <a>{t.description}</a>)}
-                    Temperature: {Math.ceil(cityWeather.main.temp)}°
+                    Temperature: {Math.round(cityWeather.main.temp)}°
                     Pressure: {cityWeather.main.pressure} hPa
                     Humidity: {cityWeather.main.humidity} %
                 </div>
