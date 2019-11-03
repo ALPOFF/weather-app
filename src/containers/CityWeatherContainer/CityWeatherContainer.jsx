@@ -18,12 +18,14 @@ const CityWeatherContainer = (props) => {
                         showCity={props.showCity}
                         unsetCity={props.unsetCity}
                         setCity={props.setCity}
-                        Cities={props.Cities}/>
+                        Cities={props.Cities}
+                        status={props.status}/>
 };
 
 const mapStateToProps = (state) => ({
     cityWeather: getCityWeatherSelector(state),
-    Cities: getCitiesSelector(state)
+    Cities: getCitiesSelector(state),
+    status: state.weatherReducer.status
 });
 
 export default compose(connect(mapStateToProps, {getCityWeatherFunc, setCity, unsetCity, showCity, getNewCityWeatherData}), withRouter)

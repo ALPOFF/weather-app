@@ -13,14 +13,14 @@ const CurrentPosWeather = ({weather, newCityValue, setNewCityValue, getCityWeath
     let onNewCityValue = (e) => {
         let newCityValue = e.target.value;
         setNewCityValue(newCityValue)
-    }
+    };
 
     let EnterDown = (e) => {
         if (e.key === 'Enter') {
             let newCityValue = e.target.value;
             getCityWeatherFunc(newCityValue)
         }
-    }
+    };
 
     return (
         <div className="top">

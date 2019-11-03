@@ -12,7 +12,8 @@ let initialState = {
     weather: {weather: [], main: []},
     cityWeather: {weather: [], main: []},
     newCityValue: '',
-    Cities: []
+    Cities: [],
+    status: true
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -26,6 +27,7 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cityWeather: action.payl,
+                status: action.status,
                 newCityValue: ''
             };
         case SET_NEW_CITY_VALUE:
@@ -86,10 +88,11 @@ export const showCity = (id) => {
     }
 };
 
-export const setCityWeather = (payl) => {
+export const setCityWeather = (payl, status) => {
     return {
         type: SET_CITY_WEATHER,
-        payl
+        payl,
+        status
     }
 };
 
@@ -108,13 +111,17 @@ export const updateCityWeather = (idArr) => {
 };
 
 export const getCityWeatherFunc = (city) => async (dispatch) => {
-    let response = await getCityWeather(city);
-    if (response.status == '200') {
-        dispatch(setCityWeather(response.data))
+    try {
+        let response = await getCityWeather(city);
+        if (response.data.cod == 200) {
+            dispatch(setCityWeather(response.data, true))
+        }
+    } catch (e) {
+            console.log(e);
+            dispatch(setCityWeather({weather: [], main: []}, false))
     }
-    else {
-        console.log(555)
-    }
+
+
  };
 
 export const getWeatherFunc = (latitude, longitude) => async (dispatch) => {
