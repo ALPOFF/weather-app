@@ -54,7 +54,8 @@ const weatherReducer = (state = initialState, action) => {
             let [selectedCity] = state.Cities.filter(c => c.id == action.id);
             return {
                 ...state,
-                cityWeather: selectedCity
+                cityWeather: selectedCity,
+                status: true
             };
         default:
             return state
@@ -120,8 +121,6 @@ export const getCityWeatherFunc = (city) => async (dispatch) => {
             console.log(e);
             dispatch(setCityWeather({weather: [], main: []}, false))
     }
-
-
  };
 
 export const getWeatherFunc = (latitude, longitude) => async (dispatch) => {

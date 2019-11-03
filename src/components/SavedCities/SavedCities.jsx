@@ -1,8 +1,9 @@
 import React from "react";
 import add_icon from "../../assets/add_icon.png";
 
-let SavedCities = ({cityWeather, addCity}) => {
+let SavedCities = ({cityWeather, addCity, status}) => {
     return <div className="city_container_item_temp">
+
         <div className="city_container_item_temp_item">
             <div className="city_title">
                 <h3>{cityWeather.name}</h3>
@@ -20,6 +21,7 @@ let SavedCities = ({cityWeather, addCity}) => {
                 </div>
             </div>
         </div>
+
     </div>
 };
 
