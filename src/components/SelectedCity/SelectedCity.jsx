@@ -1,5 +1,5 @@
 import React from "react";
-import delete_icon from "../../../assets/delete_icon.png";
+import delete_icon from "../../assets/delete_icon.png";
 
 let SelectedCity = ({Cities, showDescription, delCity}) => {
     return <div className="city_container_item_set">

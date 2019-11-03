@@ -1,5 +1,5 @@
 import React from "react";
-import add_icon from "../../../assets/add_icon.png";
+import add_icon from "../../assets/add_icon.png";
 
 let SavedCities = ({cityWeather, addCity}) => {
     return <div className="city_container_item_temp">
