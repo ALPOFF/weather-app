@@ -10,8 +10,10 @@ let SavedCities = ({cityWeather, addCity, status}) => {
                 <img onClick={addCity} src={add_icon} alt="add_icon" height={12} />
             </div>
             <div className="city_weather_details">
-                {cityWeather.weather.map(t =>
-                    <img src={`http://openweathermap.org/img/wn/${t.icon}@2x.png`} alt=""/>)}
+                <div>
+                    {cityWeather.weather.map(t =>
+                        <img src={`http://openweathermap.org/img/wn/${t.icon}@2x.png`} alt=""/>)}
+                </div>
                 <div className="city_weather_details_descipt">
                     {cityWeather.weather.map(t =>
                         <a>{t.description}</a>)}
