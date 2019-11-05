@@ -1,7 +1,12 @@
 import React from "react";
 import add_icon from "../../assets/add_icon.png";
+import Preloader from "../../common/Preloader/Preloader";
 
 let SavedCities = ({cityWeather, addCity, status}) => {
+    if (!cityWeather.main.humidity) {
+        return <Preloader/>
+    }
+
     return <div className="city_container_item_temp">
 
         <div className="city_container_item_temp_item">

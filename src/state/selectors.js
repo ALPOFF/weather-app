@@ -13,3 +13,8 @@ export const getCityWeatherSelector = (state) => {
 export const getCitiesSelector = (state) => {
     return state.weatherReducer.Cities
 };
+
+export const getStatusSelector = (state) => {
+    return state.weatherReducer.status
+};
+

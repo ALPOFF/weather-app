@@ -4,9 +4,15 @@ import {getCityWeatherFunc, getNewCityWeatherData, setCity, showCity, unsetCity}
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import "./../../components/CityWeather.scss"
-import {getCitiesSelector, getCityWeatherSelector} from "../../state/selectors";
+import {
+    getCitiesSelector,
+    getCityWeatherSelector,
+    getNewCityValueSelector,
+    getStatusSelector
+} from "../../state/selectors";
 import SavedCities from "../../components/SavedCities/SavedCities";
 import SelectedCity from "../../components/SelectedCity/SelectedCity";
+import Preloader from "../../common/Preloader/Preloader";
 
 const CityWeatherContainer = (props) => {
     let city = props.match.params.city;
@@ -45,8 +51,8 @@ const CityWeatherContainer = (props) => {
 const mapStateToProps = (state) => ({
     cityWeather: getCityWeatherSelector(state),
     Cities: getCitiesSelector(state),
-    status: state.weatherReducer.status,
-    newCityValue: state.weatherReducer.newCityValue
+    status: getStatusSelector(state),
+    newCityValue: getNewCityValueSelector(state)
 });
 
 export default compose(connect(mapStateToProps, {
