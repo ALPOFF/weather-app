@@ -1,5 +1,5 @@
 <h1>Weather widget</h1>
-<img src="https://sun9-40.userapi.com/c855436/v855436644/14dedd/PW-xfP0ENys.jpg" alt="weather-app"/>
+<img src="https://sun9-40.userapi.com/c855436/v855436644/14dedd/PW-xfP0ENys.jpg" alt="weather-app" />
 
 ## Available Scripts
 
